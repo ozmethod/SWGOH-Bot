@@ -3,6 +3,21 @@ ran(min,max) {
 	return ran
 }
 
+returnToHome(){
+	Send {Esc}
+	sleep % ran(995, 2999)
+	while (imageCheck(*TransBlack "settings.bmp") = false) {
+	if (imageCheck(*TransBlack "yoda.bmp")) {
+	Click, %FoundX%, %FoundY% 
+	sleep % ran(495, 999)
+	return
+	}
+	Send {Esc}
+	sleep % ran(995, 2999)
+	}
+	sleep % ran(995, 2999)
+}
+
 
 imageCheck(fileName, x1:=0, y1:=0, x2:=0, y2:=0)
 {
