@@ -25,19 +25,20 @@ mainRoutine(newCharacter,path){
 	IfWinNotExist, %character% 
 	{
 		Run, C:\Program Files (x86)\Nox\bin\Nox.exe %path%
-        sleep % ran(19995, 20999)
+        sleep % ran(25995, 26999)
 	}
 	winactivate, %character%
 	WinWaitActive, %character%
 	if (imageCheck(*TransBlack "yoda.bmp")) {
         	sleep % ran(1995, 2999)
 		Click, %FoundX%, %FoundY% 
-		sleep 40000
+		sleep 45000
 	}
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
 	}
  	freePack()
+	returnToHome()
 	if(imageCheck(*TransBlack "settings.bmp")=true)
 	{
 		shipments()
@@ -53,18 +54,16 @@ mainRoutine(newCharacter,path){
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
 	}
-	returnToHome()
 	if (A_Hour = 18 || A_Hour = 6 || A_Hour = 17 || A_Hour = 5) {
 		claimLogin() 
-		returnToHome()
 	}
 	sleep % ran(1995, 2999)	
-	if(imageCheck("settings.png")=true)
-	{
-	dailies()
-	SundayDaily()
-	}
-	returnToHome()
+	if (character != "Ozmethod2" && character != "Bossk") {
+		dailies()
+		if(A_WDay = 1){
+			SundayDaily()
+		}
+	}		
 	if (A_Hour = 21) {
 		sleep % ran(1995, 2999)	
 		if(imageCheck("settings.png")=true)
@@ -133,61 +132,62 @@ dailyQuest(){
 }
 
 dailies(){
-MouseClickDrag, Left, 250, 500, 950, 500, 75
-sleep % ran(1995, 2999)
-Click, 500, 540
-sleep % ran(2995, 3999)
-if(imageCheck("enter.bmp", 175, 775, 400, 875) || imageCheck("enter.png", 175, 775, 400, 875))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-}
-if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-}
-else if(imageCheck("actBattle.bmp", 200, 700, 400, 958) || imageCheck("actBattle.bmp", 200, 700, 400, 958))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-}
-else
-{
-returnToHome()
-return
-}
-Click, 250, 500
-sleep % ran(1995, 2999)
-Click, 1380, 870
-sleep % ran(5995, 6999)
+	openChallenges()
+	if(imageCheck("enter.bmp", 175, 775, 400, 875) || imageCheck("enter.png", 175, 775, 400, 875))
+	{
+	Click, %FoundX%, %FoundY% 
+	sleep % ran(1995, 2999)
+	}
+	if (character = "OzmethodT3" || character = "OzmethodT5" || character = "OzmethodT4" ||){
+		simDaily()
+		returnToHome()
+		SundayDaily()
+		return
+	}
+	if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
+	{
+		Click, %FoundX%, %FoundY% 
+		sleep % ran(1995, 2999)
+	}
+	else if(imageCheck("actBattle.bmp", 200, 700, 400, 958) || imageCheck("actBattle.bmp", 200, 700, 400, 958))
+	{
+		Click, %FoundX%, %FoundY% 
+		sleep % ran(1995, 2999)
+	}
+	else
+	{
+		returnToHome()
+		return
+	}
+	Click, 250, 500
+	sleep % ran(1995, 2999)
+	Click, 1380, 870
+	sleep % ran(5995, 6999)
 	while (imageCheck("autoOff.bmp")=false)
 	{
-	sleep % ran(1995, 2999)
+		sleep % ran(1995, 2999)
 	}
 	Click, 250, 80
 	while (imageCheck("challengeVictory.bmp")=false) 
 	{
-	sleep % ran(1995, 2999)
+		sleep % ran(1995, 2999)
 	}
 	sleep % ran(995, 2999)
 	returnToHome()
-	sleep % ran(995, 2999)
-returnToHome()
 }
 
 SundayDaily(){
 ; daily 2
-if(A_WDay = 1){
-	sleep % ran(1995, 2999)
-	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
-	Click, 500, 540
-	sleep % ran(1995, 2999)
+	openChallenges()
 	if(imageCheck("enter.bmp", 675, 775, 800, 875) || imageCheck("enter.png", 675, 775, 800, 875))
 	{
-	Click, %FoundX%, %FoundY% 
-	sleep % ran(1995, 2999)
+		Click, %FoundX%, %FoundY% 
+		sleep % ran(1995, 2999)
+	}
+	if (character = "OzmethodT3" || character = "OzmethodT5" || character = "OzmethodT4" ||){
+		simDaily()
+		returnToHome()
+		return
 	}
 	if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
 	{
@@ -219,18 +219,18 @@ if(A_WDay = 1){
 	}
 	sleep % ran(995, 2999)
 	returnToHome()
-	sleep % ran(995, 2999)
-	returnToHome()
-	; daily 3
-	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
-	Click, 500, 540
-	sleep % ran(1995, 2999)
+; daily 3
+	openChallenges()
 	if(imageCheck("enter.bmp", 1125, 775, 1250, 875) || imageCheck("enter.png", 1125, 775, 1250, 875))
 	{
 	Click, %FoundX%, %FoundY% 
 	sleep % ran(1995, 2999)
 	}
+	if (character = "OzmethodT3" || character = "OzmethodT5" || character = "OzmethodT4" ||){
+		simDaily()
+		returnToHome()
+		return
+	}
 	if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
 	{
 	Click, %FoundX%, %FoundY% 
@@ -263,7 +263,6 @@ if(A_WDay = 1){
 	returnToHome()
 	sleep % ran(995, 2999)
 	returnToHome()
-}
 }
 
 claimLogin(){
@@ -282,78 +281,30 @@ claimLogin(){
 	sleep % ran(995, 2999)
 }
 
-dalies(){
-MouseClickDrag, Left, 250, 500, 950, 500, 75
-sleep % ran(1995, 2999)
-Click, 500, 540
-sleep % ran(1995, 2999)
-if(imageCheck("challenge.bmp", 685, 810, 775, 850))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-}
-if(imageCheck("challenge.bmp", 215, 810, 315, 850))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-}
-if(imageCheck("challenge2.bmp", 685, 810, 775, 850))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-}
-if(imageCheck("challenge2.bmp", 200, 820, 355, 858))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-}
-else
-{
-Click, 75, 240
-sleep % ran(995, 2999)
-Click, 75, 240
-sleep % ran(995, 2999)
-dailyChallenges --
-return
-}
-Click, 250, 500
-sleep % ran(1995, 2999)
-Click, 1380, 870
-sleep % ran(995, 2999)
-	while (imageCheck("autoOff.bmp")=false)
-	{
-	sleep % ran(995, 2999)
-	}
-	Click, 260, 80
-	while (imageCheck("win.bmp",560, 450, 780, 780)=false)
-	{
-	sleep % ran(995, 2999)
-	}
-	sleep % ran(995, 2999)
-	returnToHome()
-	dailyChallenges --
-}
 
 freePack(){
-;if(imageCheck(*TransBlack "freePack.bmp",830,250,935,365))
-;{
-Click, 915, 250 
-sleep % ran(1995, 2999)
-if(imageCheck("free.png"))
-{
-Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
-Click, 1350,850
-sleep % ran(995, 2999)0
-Send {Esc}
-sleep % ran(1995, 2999)
-Send {Esc}
-sleep % ran(1995, 2999)
-Send {Esc}
-sleep % ran(1995, 2999)
-}
-returnToHome()
-;}
+	Click, 915, 250 
+	sleep % ran(1995, 2999)
+	if(imageCheck("free.png"))
+	{
+		Click, %FoundX%, %FoundY% 
+		sleep % ran(1995, 2999)
+		Click, 1350,850
+		sleep % ran(995, 2999)
+		Send {Esc}
+		sleep % ran(1995, 2999)
+		Send {Esc}
+		sleep % ran(1995, 2999)
+		Send {Esc}
+		sleep % ran(1995, 2999)
+		Send {Esc}
+		sleep % ran(1995, 2999)
+		Send {Esc}
+		sleep % ran(1995, 2999)
+		Send {Esc}
+		sleep % ran(1995, 2999)
+	}
+	returnToHome()
 }
 
 getFreeEnergy(){
@@ -771,7 +722,9 @@ OzTicketDailies(newCharacter,path){
 		sleep % ran(2995, 3999)
 		click 1200, 875
 		sleep % ran(1995, 2999)
-		click 175, 475
+		click 300, 370
+		sleep % ran(995, 2999)
+		click 185, 485
 		sleep % ran(995, 2999)
 		multiSim()
 		returnToHome()
@@ -792,7 +745,7 @@ OzTicketDailies(newCharacter,path){
 	openMods()
 	click 300, 850
 	sleep % ran(1995, 3999)
-	click 800, 750
+	click 1300, 750
 	sleep % ran(1995, 3999)
 	click 800, 600
 	sleep % ran(2995, 3999)
@@ -800,6 +753,10 @@ OzTicketDailies(newCharacter,path){
 ; ship energy
 	openShips()
 	fleetBattles()
+	click 350, 185
+	sleep % ran(2995, 3999)
+	click 300, 540
+	sleep % ran(2995, 3999)
 	multiSim()
 	returnToHome()
 ;burn energy
@@ -817,6 +774,7 @@ OzTicketDailies(newCharacter,path){
 		sleep % ran(2995, 3999)
 		multiSim()
 	}
+	returnToHome()
 }
 
 timeChecker:

@@ -126,3 +126,27 @@ openChallenges(){
 	Click, 500, 540
 	sleep % ran(1995, 2999)
 }
+
+simDaily(){
+	if(imageCheck("sim.png", 1000, 700, 1200, 800) || imageCheck("sim.bmp", 1000, 700, 1200, 800))
+	{
+		Click, %FoundX%, %FoundY% 
+		sleep % ran(1995, 2999)
+		Click, 800, 600 
+		sleep % ran(1995, 2999)
+	}
+	else if(imageCheck("sim.png", 550, 700, 700, 950) || imageCheck("sim.bmp", 550, 750, 700, 950))
+	{
+		Click, %FoundX%, %FoundY% 
+		sleep % ran(1995, 2999)
+		Click, 800, 600 
+		sleep % ran(1995, 2999)
+	}
+	else if(imageCheck("sim.png", 50, 700, 150, 958) || imageCheck("sim.bmp", 50, 700, 150, 958))
+	{
+		Click, %FoundX%, %FoundY% 
+		sleep % ran(1995, 2999)
+		Click, 800, 600 
+		sleep % ran(1995, 2999)
+	}
+}
