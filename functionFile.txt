@@ -1,3 +1,7 @@
+sleepRan(sec){
+	sleep % ran(sec*1000,(sec*1000)+1000)
+}
+
 ran(min,max) {
 	random, ran, min, max
 	return ran
@@ -33,120 +37,120 @@ buySims(){
 
 ; buy sim tickets
 	click 675, 275
-	sleep % ran(995, 1999)
+	sleepRan(1)
 	MouseClickDrag, Left, 700, 700, 700, 100, 75
-	sleep % ran(995, 1999)
+	sleepRan(1)
 	MouseClickDrag, Left, 700, 700, 700, 100, 75
-	sleep % ran(995, 1999)
+	sleepRan(1)
 	MouseClickDrag, Left, 700, 700, 700, 100, 75
-	sleep % ran(995, 1999)
+	sleepRan(1)
 	MouseClickDrag, Left, 700, 700, 700, 100, 75
-	sleep % ran(995, 1999)
+	sleepRan(1)
 	MouseClickDrag, Left, 700, 700, 700, 100, 75
 	click 1100, 600
-	sleep % ran(995, 1999)
+	sleepRan(1)
 ;is it available to buy?
 	if (imageCheck(*TransBlack "buy.bmp",560, 450, 780, 780) = true) {
 		Click, %FoundX%, %FoundY% 
-		sleep % ran(995, 2999)
+		sleepRan(3)
 	}
 	returnToHome()
 }
 
 openShips(){
 	MouseClickDrag, Left, 1400, 500, 300, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1325, 325
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 fleetBattles(){
 	click 800, 700
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 openLight(){
 	click 500, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 }
 
 clickNormal(){
 	click 500, 875
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 click5(){
 	MouseClickDrag, Left, 200, 185, 1300, 185, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 900, 185
-	sleep % ran(2995, 3999)
+	sleepRan(3)
 }
 
 multiSim(){
 	click 1200, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
-	sleep % ran(1995, 3999)
+	sleepRan(2)
 	click 800, 800
-	sleep % ran(1995, 3999)
+	sleepRan(2)
 }
 
 openDark(){
 	click 1000, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 }
 
 openCantina(){
 	click 400, 400
-	sleep % ran(1995, 3999)
+	sleepRan(2)
 }
 
 openMods(){
 	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 276, 324
-	sleep % ran(1995, 3999)
+	sleepRan(2)
 }
 
 buyEnergy(){
 	click 1200, 85
-	sleep % ran(995, 2999)	
+	sleepRan(3)	
 	click 1000, 600
-	sleep % ran(995, 2999)	
+	sleepRan(3)	
 }
 
 openShipArena(){
 	click 1200, 500
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 openChallenges(){
 	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 500, 540
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 simDaily(){
 	if(imageCheck("sim.png", 1000, 700, 1200, 800) || imageCheck("sim.bmp", 1000, 700, 1200, 800))
 	{
 		Click, %FoundX%, %FoundY% 
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		Click, 800, 600 
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 	}
 	else if(imageCheck("sim.png", 550, 700, 700, 950) || imageCheck("sim.bmp", 550, 750, 700, 950))
 	{
 		Click, %FoundX%, %FoundY% 
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		Click, 800, 600 
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 	}
 	else if(imageCheck("sim.png", 50, 700, 150, 958) || imageCheck("sim.bmp", 50, 700, 150, 958))
 	{
 		Click, %FoundX%, %FoundY% 
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		Click, 800, 600 
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 	}
 }

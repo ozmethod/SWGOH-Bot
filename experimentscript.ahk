@@ -13,7 +13,7 @@ global haveEnergy := 1
 	winactivate, %character%
 	WinWaitActive, %character%
 	if (imageCheck(*TransBlack "yoda.bmp")) {
-        	sleep % ran(1995, 2999)
+        	sleepRan(2)
 		Click, %FoundX%, %FoundY% 
 		sleep 20
 	}

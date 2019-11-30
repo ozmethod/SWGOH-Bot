@@ -29,7 +29,7 @@ mainRoutine(newCharacter,path){
 	winactivate, %character%
 	WinWaitActive, %character%
 	if (imageCheck(*TransBlack "yoda.bmp")) {
-        	sleep % ran(1995, 2999)
+        	sleepRan(2)
 		Click, %FoundX%, %FoundY% 
 		sleep 40000
 	}
@@ -67,7 +67,7 @@ mainRoutine(newCharacter,path){
 		claimLogin() 
 		returnToHome()
 	}
-	sleep % ran(1995, 2999)	
+	sleepRan(2)	
 	if(imageCheck("settings.png")=true)
 	{
 	dailies()
@@ -75,7 +75,7 @@ mainRoutine(newCharacter,path){
 	}
 	returnToHome()
 	if (A_Hour = 21) {
-		sleep % ran(1995, 2999)	
+		sleepRan(2)	
 		if(imageCheck("settings.png")=true)
 		{
 			dailyQuest()
@@ -98,7 +98,7 @@ mainRoutine(newCharacter,path){
 	}
 ;	if(character = "Bast" || character = "MotherT" || character = "Bast2"){
 	Send !{f4}
-	sleep % ran(1995, 2999)	
+	sleepRan(2)	
 	Send {Enter}
 ;	}
 }
@@ -117,52 +117,52 @@ dailyQuest(){
 		else { 
 			click, 575, 530
 		}
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click, 130, 180
-		sleep % ran(1995, 2999)
+		sleepRan(2)
                 if(A_WDay = 4){
 			click, 1400, 875
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 		}
                 else {
 			click, 200, 875
-			sleep % ran(1995, 2999)
+			sleepRan(2)
                 }
 		click, 1400, 775
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click, 250, 500
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click, 1400, 875
 		sleep % ran(10950, 15990)
 		click, 55, 85
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click, 800, 775
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click, 600, 600
-		sleep % ran(3995, 4999)
+		sleepRan(4)
 ;	}
 	returnToHome()
 }
 
 dailies(){
 MouseClickDrag, Left, 250, 500, 950, 500, 75
-sleep % ran(1995, 2999)
+sleepRan(2)
 Click, 500, 540
 sleep % ran(2995, 3999)
 if(imageCheck("enter.bmp", 175, 775, 400, 875) || imageCheck("enter.png", 175, 775, 400, 875))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 else if(imageCheck("actBattle.bmp", 200, 700, 400, 958) || imageCheck("actBattle.bmp", 200, 700, 400, 958))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 else
 {
@@ -170,46 +170,46 @@ returnToHome()
 return
 }
 Click, 250, 500
-sleep % ran(1995, 2999)
+sleepRan(2)
 Click, 1380, 870
 sleep % ran(5995, 6999)
 	while (imageCheck("autoOff.bmp")=false)
 	{
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
 	Click, 250, 80
 	while (imageCheck("challengeVictory.bmp")=false) 
 	{
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	returnToHome()
-	sleep % ran(995, 2999)
+	sleepRan(3)
 returnToHome()
 }
 
 SundayDaily(){
 ; daily 2
 if(A_WDay = 1){
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 500, 540
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	if(imageCheck("enter.bmp", 675, 775, 800, 875) || imageCheck("enter.png", 675, 775, 800, 875))
 	{
 	Click, %FoundX%, %FoundY% 
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
 	if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
 	{
 	Click, %FoundX%, %FoundY% 
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
 	else if(imageCheck("actBattle.bmp", 200, 700, 400, 958) || imageCheck("actBattle.bmp", 200, 700, 400, 958))
 	{
 	Click, %FoundX%, %FoundY% 
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
 	else
 	{
@@ -217,41 +217,41 @@ if(A_WDay = 1){
 	return
 	}
 	Click, 250, 500
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 1380, 870
 	sleep % ran(5995, 6999)
 	while (imageCheck("autoOff.bmp")=false)
 	{
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 	}
 	Click, 250, 80
 	while (imageCheck("challengeVictory.bmp")=false) 
 	{
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	returnToHome()
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	returnToHome()
 	; daily 3
 	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 500, 540
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	if(imageCheck("enter.bmp", 1125, 775, 1250, 875) || imageCheck("enter.png", 1125, 775, 1250, 875))
 	{
 	Click, %FoundX%, %FoundY% 
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
 	if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
 	{
 	Click, %FoundX%, %FoundY% 
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
 	else if(imageCheck("actBattle.bmp", 200, 700, 400, 958) || imageCheck("actBattle.bmp", 200, 700, 400, 958))
 	{
 	Click, %FoundX%, %FoundY% 
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
 	else
 	{
@@ -259,53 +259,53 @@ if(A_WDay = 1){
 	return
 	}
 	Click, 250, 500
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 1380, 870
 	sleep % ran(5995, 6999)
 	while (imageCheck("autoOff.bmp")=false)
 	{
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 	}
 	Click, 250, 80
 	while (imageCheck("challengeVictory.bmp")=false) 
 	{
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	}
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	returnToHome()
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	returnToHome()
 }
 }
 
 claimLogin(){
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	Click, 75, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	Click, 1300, 850
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	Click, 1300, 850
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	Click, 1300, 850
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	Click, 600, 200
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	Click, 1300, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 }
 
 cantinaAttack(){
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 ;open cantina
 	Click, 400, 375
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	farmTalia()
 ;	if(imageCheck(*TransBlack "14.png") =true || imageCheck(*TransBlack "15.png") =true || imageCheck(*TransBlack "14.bmp") =true || imageCheck(*TransBlack "15.bmp") =true) 
 ;	{
 ;		
 ;		;open cantina
 ;		Click, 400, 375
-;		sleep % ran(1995, 2999)
+;		sleepRan(2)
 ;		farmHera()
 ;		return
 ;	}
@@ -313,7 +313,7 @@ cantinaAttack(){
 ;	else if(imageCheck(*TransBlack "22.png") =true || imageCheck(*TransBlack "22.bmp") =true || imageCheck(*TransBlack "23.png") =true || imageCheck(*TransBlack "23.bmp") =true){
 ;		;open cantina
 ;		Click, 400, 375
-;		sleep % ran(1995, 2999)
+;		sleepRan(2)
 ;		farmEzra()
 ;		return
 ;	}
@@ -325,13 +325,13 @@ cantinaAttack(){
 
 farmTalia(){
 		click, 120, 175
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		if(imageCheck("talia.bmp")  =true || imageCheck("talia.png", 1000, 600, 1150, 700) =true) {
 			Click, 1410, 780
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			while (imageCheck("ooe.bmp", 400, 250, 550, 350) =false && imageCheck("battle.bmp") =false && imageCheck("borrow.bmp") = false)
 			{
-				sleep % ran(995, 2999)
+				sleepRan(3)
 			}
 			if(imageCheck("ooe.bmp", 400, 250, 550, 350))
 			{
@@ -341,7 +341,7 @@ farmTalia(){
 			}
 			if (imageCheck("borrow.bmp") =true) {
 			click, 240, 540
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			}
 			if imageCheck("battle.bmp") =false Click, 250, 500
 			sleep % ran(4995, 6999)
@@ -349,16 +349,16 @@ farmTalia(){
 			sleep % ran(4995, 6999)
 			while (imageCheck("autoOff.bmp")=false)
 			{
-				sleep % ran(1995, 2999)
+				sleepRan(2)
 			}	
 			Click, 250, 80
 			while (imageCheck("victory.bmp")=false)
 			{
-				sleep % ran(1995, 2999)0
+				sleepRan(2)0
 			}
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			returnToHome()
-			sleep % ran(995, 2999)
+			sleepRan(3)
 		}
 }
 
@@ -366,25 +366,25 @@ farmHera(){
 		if(imageCheck("hera.bmp")=false) {
 			;check which target?
 			click, 119, 181
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			MouseClickDrag, Left, 966, 500, 61, 500, 75
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			MouseClickDrag, Left, 966, 500, 61, 500, 75
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			click, 575, 500
-			sleep % ran(995, 2999)
+			sleepRan(3)
 		}
 		if(imageCheck("talia.bmp")) {
 			Click, 650, 515
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 		}
 		if(imageCheck("hera.bmp"))
 		{
 			Click, 1410, 780
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			while (imageCheck("ooe.bmp", 545, 585, 570, 625) =false && imageCheck("battle.bmp") =false && imageCheck("borrow.bmp") = false)
 			{
-				sleep % ran(995, 2999)
+				sleepRan(3)
 			}
 			if(imageCheck("ooe.bmp", 545, 585, 570, 625))
 			{
@@ -394,7 +394,7 @@ farmHera(){
 			}
 			if (imageCheck("borrow.bmp") =true) {
 			click, 240, 540
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			}
 			if imageCheck("battle.bmp") =false Click, 250, 500
 			sleep % ran(4995, 6999)
@@ -402,49 +402,49 @@ farmHera(){
 			sleep % ran(4995, 6999)
 			while (imageCheck("autoOff.bmp")=false)
 			{
-				sleep % ran(1995, 2999)
+				sleepRan(2)
 			}	
 			Click, 250, 80
 			while (imageCheck("victory.bmp")=false)
 			{
-				sleep % ran(1995, 2999)0
+				sleepRan(2)0
 			}
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			returnToHome()
-			sleep % ran(995, 2999)
+			sleepRan(3)
 		}
 }
 
 farmEzra(){
 ;msgbox gothere
-                sleep % ran(1995, 2999)
+                sleepRan(2)
 		if(imageCheck("super.bmp")) {
 		click, 290, 500
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		}
 
 		if(imageCheck("ezra.bmp")=false) {
 		;check which target?
 		click, 320, 181
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		MouseClickDrag, Left, 61, 500, 966, 500, 75
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		MouseClickDrag, Left, 61, 500, 966, 500, 75
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click, 800, 500
-		sleep % ran(995, 2999)
+		sleepRan(3)
                 }
 ;		if(imageCheck("talia.bmp")) {
 ;			Click, 650, 515
-;			sleep % ran(1995, 2999)
+;			sleepRan(2)
 ;		}
 ;		if(imageCheck("hera.bmp"))
 ;		{
 			Click, 1410, 780
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			while (imageCheck("ooe.bmp", 545, 585, 570, 625) =false && imageCheck("battle.bmp") =false && imageCheck("borrow.bmp") = false)
 			{
-				sleep % ran(995, 2999)
+				sleepRan(3)
 			}
 			if(imageCheck("ooe.bmp", 545, 585, 570, 625))
 			{
@@ -454,7 +454,7 @@ farmEzra(){
 			}
 			if (imageCheck("borrow.bmp") =true) {
 			click, 240, 540
-			sleep % ran(1995, 2999)
+			sleepRan(2)
 			}
 ;			if imageCheck("battle.bmp") =false Click, 250, 500
 			sleep % ran(4995, 6999)
@@ -462,7 +462,7 @@ farmEzra(){
 			sleep % ran(4995, 6999)
 			while (imageCheck("autoOff.bmp")=false)
 			{
-				sleep % ran(1995, 2999)
+				sleepRan(2)
 			}	
 			Click, 260, 80
 			while (imageCheck("victory.bmp")=false)
@@ -471,71 +471,71 @@ farmEzra(){
 				{
 					click, 800,700
 				}
-				sleep % ran(1995, 2999)0
+				sleepRan(2)0
 			}
 			click, 700, 800
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			if(imageCheck("no.bmp") =true || imageCheck("no.png") =true) {
 				click, 800, 825
-				sleep % ran(995, 2999)
+				sleepRan(3)
 			}
 		;	if(haveEnergy=1)
 		;	{
 		;	    farmEzra()
 		;	}
 			returnToHome()
-			sleep % ran(995, 2999)
+			sleepRan(3)
 ;		}
 }
 
 dalies(){
 MouseClickDrag, Left, 250, 500, 950, 500, 75
-sleep % ran(1995, 2999)
+sleepRan(2)
 Click, 500, 540
-sleep % ran(1995, 2999)
+sleepRan(2)
 if(imageCheck("challenge.bmp", 685, 810, 775, 850))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 if(imageCheck("challenge.bmp", 215, 810, 315, 850))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 if(imageCheck("challenge2.bmp", 685, 810, 775, 850))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 if(imageCheck("challenge2.bmp", 200, 820, 355, 858))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 else
 {
 Click, 75, 240
-sleep % ran(995, 2999)
+sleepRan(3)
 Click, 75, 240
-sleep % ran(995, 2999)
+sleepRan(3)
 dailyChallenges --
 return
 }
 Click, 250, 500
-sleep % ran(1995, 2999)
+sleepRan(2)
 Click, 1380, 870
-sleep % ran(995, 2999)
+sleepRan(3)
 	while (imageCheck("autoOff.bmp")=false)
 	{
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	}
 	Click, 260, 80
 	while (imageCheck("win.bmp",560, 450, 780, 780)=false)
 	{
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	}
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	returnToHome()
 	dailyChallenges --
 }
@@ -544,19 +544,19 @@ freePack(){
 ;if(imageCheck(*TransBlack "freePack.bmp",830,250,935,365))
 ;{
 Click, 915, 250 
-sleep % ran(1995, 2999)
+sleepRan(2)
 if(imageCheck("free.png"))
 {
 Click, %FoundX%, %FoundY% 
-sleep % ran(1995, 2999)
+sleepRan(2)
 Click, 1350,850
-sleep % ran(995, 2999)0
+sleepRan(3)0
 Send {Esc}
-sleep % ran(1995, 2999)
+sleepRan(2)
 Send {Esc}
-sleep % ran(1995, 2999)
+sleepRan(2)
 Send {Esc}
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 returnToHome()
 ;}
@@ -566,75 +566,75 @@ getFreeEnergy(){
 ;open quest screen
 sleep % ran(4995, 6999)
 Click, 1385, 870
-sleep % ran(1995, 2999)
+sleepRan(2)
 ;check if daily quests are currently selected, if not click them.
 ;while (imageCheck("quests.bmp", 130, 50, 320, 145)=false)
 ;{
 ;}
 ;if (imageCheck("dailies.bmp")=false) {
 	Click, 95, 240
-sleep % ran(1995, 2999)
+sleepRan(2)
 ;}
 while(imageCheck(*TransBlack "energy.bmp", 200, 260, 339, 305)=true || imageCheck(*TransBlack "energy.png", 200, 260, 339, 305)=true) {
-sleep % ran(995, 2999)
+sleepRan(3)
 Click, 1385, 870
 ;msgBox "Would have clicked"
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 Send {Esc}
 }
 
 shipments(){
-sleep % ran(995, 2999)
+sleepRan(3)
 ;first open shipments
 Click, 670, 280
-sleep % ran(995, 2999)
+sleepRan(3)
 ;select first shipment
 Click, 475, 400
-sleep % ran(995, 2999)
+sleepRan(3)
 ;is it available to buy?
 if (imageCheck(*TransBlack "buy.bmp",560, 450, 780, 780) = true) {
 Click, %FoundX%, %FoundY% 
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 else {
 Send {Esc}
-sleep % ran(995, 2999)
+sleepRan(3)
 returnToHome()
 return
 }
 ; second
 Click, 820, 400
-sleep % ran(995, 2999)
+sleepRan(3)
 if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 Click, %FoundX%, %FoundY% 
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 else {
 Send {Esc}
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 ; third
 Click, 1150, 400
-sleep % ran(995, 2999)
+sleepRan(3)
 if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 Click, %FoundX%, %FoundY% 
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 else {
 Send {Esc}
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 ; fourth
 Click, 475, 725
-sleep % ran(995, 2999)
+sleepRan(3)
 if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 Click, %FoundX%, %FoundY% 
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 else {
 Send {Esc}
-sleep % ran(1995, 2999)
+sleepRan(2)
 }
 ; dengar
 ;if (character != "MotherT" && character != "Bast" && character != "Bast2"){
@@ -642,10 +642,10 @@ sleep % ran(1995, 2999)
 ;	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
 ;	if(imageCheck("dengar.png") = true || imageCheck("dengar.bmp") = true){
 ;		click 500, 700
-;		sleep % ran(995, 2999)
+;		sleepRan(3)
 ;		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 ;			Click, %FoundX%, %FoundY% 
-;			sleep % ran(995, 2999)
+;			sleepRan(3)
 ;		}
 ;	}
 ;}
@@ -656,10 +656,10 @@ sleep % ran(1995, 2999)
 ;	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
 ;	if(imageCheck("buyTalia.png") = true || imageCheck("buyTalia.bmp") = true){
 ;		click 850, 700
-;		sleep % ran(995, 2999)
+;		sleepRan(3)
 ;		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 ;			Click, %FoundX%, %FoundY% 
-;			sleep % ran(995, 2999)
+;			sleepRan(3)
 ;		}
 ;	}
 ;}
@@ -670,10 +670,10 @@ if (character = "Bast" || character = "MotherT"){
 	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
 	if(imageCheck("oldBen.png") = true || imageCheck("oldBen.bmp") = true){
 		click 450, 700
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 			Click, %FoundX%, %FoundY% 
-			sleep % ran(995, 2999)
+			sleepRan(3)
 		}
 	}
 }
@@ -682,21 +682,21 @@ if (character = "Bast2"){
 	click, 965, 200
 	if(imageCheck("Han.png") = true || imageCheck("Han.bmp") = true){
 		click 450, 700
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 			Click, %FoundX%, %FoundY% 
-			sleep % ran(995, 2999)
+			sleepRan(3)
 		}
 	}
 }
 shipmentFlag := 0
 returnToHome()
-sleep % ran(995, 2999)
+sleepRan(3)
 }
 
 returnToHome(){
 	Send {Esc}
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	while (imageCheck(*TransBlack "settings.bmp") = false) {
 	if (imageCheck(*TransBlack "yoda.bmp")) {
 	Click, %FoundX%, %FoundY% 
@@ -704,9 +704,9 @@ returnToHome(){
 	return
 	}
 	Send {Esc}
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	}
-	sleep % ran(995, 2999)
+	sleepRan(3)
 }
 
 
@@ -716,11 +716,11 @@ ticketDailies(newCharacter,path){
     sleep % ran(4995, 6999)
 	IfWinNotExist, %character%
 	Run, C:\Program Files (x86)\Nox\bin\Nox.exe %path%
-        sleep % ran(1995, 2999)
+        sleepRan(2)
 	winactivate, %character%
 	WinWaitActive, %character%
 	if (imageCheck(*TransBlack "yoda.bmp")) {
-        	sleep % ran(1995, 2999)
+        	sleepRan(2)
 		Click, %FoundX%, %FoundY% 
 		sleep 20
 	}
@@ -729,23 +729,23 @@ ticketDailies(newCharacter,path){
 	}
 ; regular farm, i think
 	click 1000, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 400, 880
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 1400, 175
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 1300, 175
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 400, 880
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	; MOVING TO ITEM
 	click 225, 450
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 300, 500
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	;SIMMING
 	click 1200, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
 	sleep % ran(1995, 3999)
 	click 800, 800
@@ -757,13 +757,13 @@ ticketDailies(newCharacter,path){
 	click 100, 175
 	sleep % ran(1995, 3999)
 ;	MouseClickDrag, Left, 901, 500, 966, 500, 75
-;	sleep % ran(1995, 2999)
+;	sleepRan(2)
 	MouseClickDrag, Left, 901, 500, 200, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 575, 515
 	sleep % ran(1995, 3999)
 	click 1200, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
 	sleep % ran(1995, 3999)
 	click 800, 800
@@ -771,13 +771,13 @@ ticketDailies(newCharacter,path){
 	returnToHome()
 ; mods
 	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 276, 324
 	sleep % ran(1995, 3999)
 	MouseClickDrag, Left, 1500, 500, 150, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	MouseClickDrag, Left, 1500, 500, 150, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1300, 850
 	sleep % ran(1995, 3999)
 	click 1300, 750
@@ -787,17 +787,17 @@ ticketDailies(newCharacter,path){
 	returnToHome()
 ; ships
 	MouseClickDrag, Left, 1400, 500, 300, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1325, 325
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 800, 700
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 100, 175
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 400, 875
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1200, 775
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 800, 600
 	sleep % ran(2995, 3999)
 	returnToHome()
@@ -806,18 +806,18 @@ ticketDailies(newCharacter,path){
 		click 1200, 85
 		sleep % ran(1995, 3999)
 		click 1000, 600
-		sleep % ran(995, 2999)
+		sleepRan(3)
 	; sim bossk		
 			click 1000, 600
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			click 1400, 180
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			click 1200, 900
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			click 200, 500
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			click 1200, 800
-			sleep % ran(995, 2999)
+			sleepRan(3)
 			click 800, 600
 			sleep % ran(1995, 3999)
 			click 800, 800
@@ -827,13 +827,13 @@ ticketDailies(newCharacter,path){
 ;	; sim HT
 ;		else {
 ;			click 500, 600
-;			sleep % ran(995, 2999)
+;			sleepRan(3)
 ;			click 1300, 180
-;			sleep % ran(995, 2999)
+;			sleepRan(3)
 ;			click 1200, 900
-;			sleep % ran(995, 2999)
+;			sleepRan(3)
 ;			click 1200, 800
-;			sleep % ran(995, 2999)
+;			sleepRan(3)
 ;			click 800, 600
 ;			sleep % ran(1995, 3999)
 ;			click 800, 800
@@ -842,13 +842,13 @@ ticketDailies(newCharacter,path){
 ;		}
 ;	; sim dark
 ;		click 1000, 600
-;		sleep % ran(995, 2999)
+;		sleepRan(3)
 ;		click 1300, 175
-;		sleep % ran(995, 2999)
+;		sleepRan(3)
 ;		click 400, 880
-;		sleep % ran(995, 2999)
+;		sleepRan(3)
 ;		click 1200, 800
-;		sleep % ran(995, 2999)
+;		sleepRan(3)
 ;		click 800, 600
 ;		sleep % ran(1995, 3999)
 ;		click 800, 800
@@ -865,7 +865,7 @@ ticketDailies(newCharacter,path){
 		click 800, 900
 		sleep % ran(1995, 3999)
 		click 800, 600
-		sleep % ran(3995, 4999)
+		sleepRan(4)
 		returnToHome()	
 	}	
 ; arena
@@ -888,63 +888,63 @@ ticketDailies(newCharacter,path){
 	if(A_Day != 2 && A_Hour = 12)
 	{
 	MouseClickDrag, Left, 1400, 500, 300, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1325, 325
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 400, 500
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 700, 850
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 750
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 800
 	sleep % ran(5995, 6999)
 	click 800, 750
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 800
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	returnToHome()
 	}
 ; challenges
 	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 500, 540
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 1300, 200
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	Click, 800, 600
 	sleep % ran(2995, 3999)
 	Click, 800, 800
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	returnToHome()
 ; ship arena
 	if(A_Hour = 6)
 	{
 	openShips()
 	click 1200, 500
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1300, 800
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1300, 900
 	sleep % ran(21995, 22999)
 	click 60, 85
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 800, 800
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 600, 600
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	returnToHome()
 	}
 ; claim quests
 	if(A_Hour = 21){
 		Click, 1300, 850
-		sleep % ran(1995, 2999)	
+		sleepRan(2)	
 		Click, 100, 200
-		sleep % ran(1995, 2999)	
+		sleepRan(2)	
 		Loop, 14 {
 			Click, 1400, 850
 			sleep % ran(995, 999)
@@ -952,7 +952,7 @@ ticketDailies(newCharacter,path){
 		returnToHome()		
 	}
 ;	Send !{f4}
-;	sleep % ran(1995, 2999)	
+;	sleepRan(2)	
 ;	Send {Enter}
 }
 
@@ -962,11 +962,11 @@ bosskDailies(newCharacter,path){
     sleep % ran(4995, 6999)
 	IfWinNotExist, %character%
 	Run, C:\Program Files (x86)\Nox\bin\Nox.exe %path%
-        sleep % ran(1995, 2999)
+        sleepRan(2)
 	winactivate, %character%
 	WinWaitActive, %character%
 	if (imageCheck(*TransBlack "yoda.bmp")) {
-        	sleep % ran(1995, 2999)
+        	sleepRan(2)
 		Click, %FoundX%, %FoundY% 
 		sleep 20
 	}
@@ -979,7 +979,7 @@ bosskDailies(newCharacter,path){
 	click 250, 525
 	sleep % ran(1995, 3999)
 	click 1200, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
 	sleep % ran(1995, 3999)
 	click 800, 800
@@ -989,25 +989,25 @@ bosskDailies(newCharacter,path){
 	if(A_Hour = 18 || A_Hour = 6){
 		;buy energy
 		click 1200, 85
-		sleep % ran(995, 2999)	
+		sleepRan(3)	
 		click 1000, 600
-		sleep % ran(995, 2999)	
+		sleepRan(3)	
 	}
 	click 500, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 1000, 185
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 400, 880
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 1200, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
 	sleep % ran(1995, 3999)
 	click 800, 800
 	sleep % ran(1995, 3999)
 	returnToHome()
 ;	Send !{f4}
-;	sleep % ran(1995, 2999)	
+;	sleepRan(2)	
 ;	Send {Enter}
 }
 
@@ -1017,11 +1017,11 @@ OzTicketDailies(newCharacter,path){
     sleep % ran(4995, 6999)
 	IfWinNotExist, %character%
 	Run, C:\Program Files (x86)\Nox\bin\Nox.exe %path%
-        sleep % ran(1995, 2999)
+        sleepRan(2)
 	winactivate, %character%
 	WinWaitActive, %character%
 	if (imageCheck(*TransBlack "yoda.bmp")) {
-        	sleep % ran(1995, 2999)
+        	sleepRan(2)
 		Click, %FoundX%, %FoundY% 
 		sleep 20
 	}
@@ -1038,7 +1038,7 @@ OzTicketDailies(newCharacter,path){
 	click 650, 510
 	sleep % ran(1995, 3999)
 	click 1200, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
 	sleep % ran(1995, 3999)
 	click 800, 800
@@ -1048,21 +1048,21 @@ OzTicketDailies(newCharacter,path){
 	if(A_Hour = 11){
 		;buy energy
 		;click 1200, 85
-		;sleep % ran(995, 2999)	
+		;sleepRan(3)	
 		;click 1000, 600
-		;sleep % ran(995, 2999)	
+		;sleepRan(3)	
 		click 500, 600
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		MouseClickDrag, Left, 200, 185, 1300,185, 75
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click 125, 185
 		sleep % ran(2995, 3999)
 		click 1200, 875
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click 25, 475
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		click 1200, 800
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		click 800, 600
 		sleep % ran(1995, 3999)
 		click 800, 800
@@ -1072,17 +1072,17 @@ OzTicketDailies(newCharacter,path){
 	; SIM light 4-d
 	if(A_Hour = 20){
 		click 500, 600
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		MouseClickDrag, Left, 200, 185, 1300,185, 75
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click 700, 185
 		sleep % ran(2995, 3999)
 		click 1200, 875
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click 175, 475
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		click 1200, 800
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		click 800, 600
 		sleep % ran(1995, 3999)
 		click 800, 800
@@ -1092,17 +1092,17 @@ OzTicketDailies(newCharacter,path){
 ;dark side jc
 	if(A_Hour = 17){
 		click 1000, 600
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		MouseClickDrag, Left, 200, 185, 1300, 185, 75
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click 125, 185
 		sleep % ran(2995, 3999)
 		click 1200, 875
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		;click 25, 475
-		;sleep % ran(995, 2999)
+		;sleepRan(3)
 		click 1200, 800
-		sleep % ran(995, 2999)
+		sleepRan(3)
 		click 800, 600
 		sleep % ran(1995, 3999)
 		click 800, 800
@@ -1111,7 +1111,7 @@ OzTicketDailies(newCharacter,path){
 	}
 ; mods
 	MouseClickDrag, Left, 250, 500, 950, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 276, 324
 	sleep % ran(1995, 3999)
 	click 300, 850
@@ -1125,7 +1125,7 @@ OzTicketDailies(newCharacter,path){
 	openShips()
 	fleetBattles()
 	click 1200, 775
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 800, 600
 	sleep % ran(2995, 3999)
 	returnToHome()
@@ -1135,9 +1135,9 @@ OzTicketDailies(newCharacter,path){
 		clickNormal()
 		click5()
 		MouseClickDrag, Left, 950, 485, 50, 485, 75
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		MouseClickDrag, Left, 950, 485, 50, 485, 75
-		sleep % ran(1995, 2999)
+		sleepRan(2)
 		click 715, 545
 		sleep % ran(2995, 3999)
 		click 375, 515
@@ -1164,7 +1164,7 @@ timeChecker:
 	mainRoutine("OzmethodT3","-clone:Nox_4")
 	mainRoutine("OzmethodT4","-clone:Nox_5")
 	mainRoutine("OzmethodT5","-clone:Nox_7")
-;		sleep % ran(1995, 2999)
+;		sleepRan(2)
 ;		dailies()	
 	}
 return
@@ -1219,43 +1219,43 @@ buySims(){
 ;is it available to buy?
 	if (imageCheck(*TransBlack "buy.bmp",560, 450, 780, 780) = true) {
 		Click, %FoundX%, %FoundY% 
-		sleep % ran(995, 2999)
+		sleepRan(3)
 	}
 	returnToHome()
 }
 
 openShips(){
 	MouseClickDrag, Left, 1400, 500, 300, 500, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 1325, 325
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 fleetBattles(){
 	click 800, 700
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 openLight(){
 	click 500, 600
-	sleep % ran(995, 2999)
+	sleepRan(3)
 }
 
 clickNormal(){
 	click 500, 875
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 }
 
 click5(){
 	MouseClickDrag, Left, 200, 185, 1300, 185, 75
-	sleep % ran(1995, 2999)
+	sleepRan(2)
 	click 900, 185
 	sleep % ran(2995, 3999)
 }
 
 multiSim(){
 	click 1200, 800
-	sleep % ran(995, 2999)
+	sleepRan(3)
 	click 800, 600
 	sleep % ran(1995, 3999)
 	click 800, 800
