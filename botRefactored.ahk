@@ -31,7 +31,11 @@ mainRoutine(newCharacter,path){
 	if (imageCheck(*TransBlack "yoda.bmp")) {
         sleepRan(2)
 		Click, %FoundX%, %FoundY% 
-		sleepRan(40)
+		sleepRan(30)
+		while (imageCheck("disney.PNG") || imageCheck("capital.PNG") || imageCheck("titleScreen.PNG"))
+		{
+			sleepRan(2)
+		}
 	}
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
