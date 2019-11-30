@@ -35,6 +35,10 @@ mainRoutine(newCharacter,path){
         	sleep % ran(1995, 2999)
 		Click, %FoundX%, %FoundY%
 		sleep 60000
+		while (imageCheck("disney.PNG") || imageCheck("capital.PNG") || imageCheck("titleScreen.PNG"))
+		{
+			sleep % ran(1995, 2999)
+		}
 	}
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
