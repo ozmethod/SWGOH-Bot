@@ -6,7 +6,6 @@
 ;initialize variables
 global FoundX := 0 
 global FoundY := 0
-global runTime:= 0
 ;global timeCheckFlag := 2
 ;global dailyChallenges := 1
 ;global shipmentFlag := 1
@@ -14,8 +13,7 @@ global runTime:= 0
 global character := "none"
 SetTimer, timeChecker, 3600000, On
 
-global closeNox := 0
-global runNow := 1
+global closeNox := 1
 
 ;mainRoutine()
 
@@ -43,13 +41,19 @@ mainRoutine(newCharacter,path){
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
 	}
+	if (imageCheck(*TransBlack "Guild.bmp", 5, 750, 175, 920) || imageCheck(*TransBlack "Guild.PNG", 5, 750, 175, 920)){
+		msgbox "found it"
+	}
+	else {
+		msgbox "nope"
+	}
+	return
+ 	freePack()
+	shipments()
 	getFreeEnergy()
 	if (A_Hour = 18 || A_Hour = 6 || A_Hour = 17 || A_Hour = 5) {
 		claimLogin() 
 	}
-if (character != "OzmethodT3" && character != "OzmethodT4" && character != "OzmethodT5") {
- 	freePack()
-	shipments()
 	if (character != "Ozmethod2") {
 		dailies()
 		if(A_WDay = 1){
@@ -59,7 +63,6 @@ if (character != "OzmethodT3" && character != "OzmethodT4" && character != "Ozme
 	if ((A_Hour = 21) && imageCheck("settings.png")){
 		dailyQuest()
 	}
-}
 	if(character = "Ozmethod2") {
 		ticketDailies("Ozmethod2","-clone:Nox_1")
 	}
@@ -67,7 +70,7 @@ if (character != "OzmethodT3" && character != "OzmethodT4" && character != "Ozme
 		OzTicketDailies("OzmethodT3","-clone:Nox_4")
 	}
 	if(character = "OzmethodT4") {
-		OzTicketDailies("OzmethodT4","-clone:Nox_8")
+		OzTicketDailies("OzmethodT4","-clone:Nox_5")
 	}
 	if(character = "OzmethodT5") {
 		OzTicketDailies("OzmethodT5","-clone:Nox_7")
@@ -180,8 +183,6 @@ SundayDaily(){
 		sleepRan(2)
 	}
 	else {
-		Send {Esc}
-		sleepRan(2)
 		returnToHome()
 		return
 	}
@@ -199,8 +200,6 @@ SundayDaily(){
 		sleepRan(2)
 	}
 	sleepRan(3)
-	Send {Esc}
-	sleepRan(2)
 	returnToHome()
 ; daily 3
 	openChallenges()
@@ -210,8 +209,6 @@ SundayDaily(){
 	}
 	if (character = "OzmethodT3" || character = "OzmethodT5" || character = "OzmethodT4"){
 		simDaily()
-		Send {Esc}
-		sleepRan(2)
 		returnToHome()
 		return
 	}
@@ -224,8 +221,6 @@ SundayDaily(){
 		sleepRan(2)
 	}
 	else {
-		Send {Esc}
-		sleepRan(2)
 		returnToHome()
 		return
 	}
@@ -242,10 +237,8 @@ SundayDaily(){
 		sleepRan(2)
 	}
 	sleepRan(3)
-	Send {Esc}
-	sleepRan(2)
-	Send {Esc}
-	sleepRan(2)
+	returnToHome()
+	sleepRan(3)
 	returnToHome()
 }
 
@@ -267,11 +260,11 @@ freePack(){
 		sleepRan(2)
 		Send {Esc}
 		sleepRan(2)
+		Send {Esc}
+		sleepRan(2)
+		Send {Esc}
+		sleepRan(2)
 	}
-	Send {Esc}
-	sleepRan(2)
-	Send {Esc}
-	sleepRan(2)
 	returnToHome()
 }
 
@@ -289,10 +282,6 @@ Click, 1385, 870
 ;msgBox "Would have clicked"
 		sleepRan(3)
 	}
-	Send {Esc}
-	sleepRan(2)
-	Send {Esc}
-	sleepRan(2)
 	returnToHome()
 }
 
@@ -303,17 +292,13 @@ shipments(){
 	sleepRan(3)
 ;select first shipment
 	Click, 475, 400
-	sleepRan(5)
+	sleepRan(3)
 ;is it available to buy?
 	if (imageCheck(*TransBlack "buy.bmp",560, 450, 780, 780) = true) {
 		Click, %FoundX%, %FoundY% 
-		sleepRan(4)
+		sleepRan(3)
 	}
 	else {
-		Send {Esc}
-		sleepRan(2)
-		Send {Esc}
-		sleepRan(2)
 		Send {Esc}
 		sleepRan(3)
 		returnToHome()
@@ -321,36 +306,36 @@ shipments(){
 	}
 ; second
 	Click, 820, 400
-	sleepRan(4)
+	sleepRan(3)
 	if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 		Click, %FoundX%, %FoundY% 
 		sleepRan(3)
 	}
 	else {
 		Send {Esc}
-		sleepRan(4)
+		sleepRan(3)
 	}
 ; third
 	Click, 1150, 400
-	sleepRan(4)
+	sleepRan(3)
 	if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 		Click, %FoundX%, %FoundY% 
-		sleepRan(4)
+		sleepRan(3)
 	}
 	else {
 		Send {Esc}
-		sleepRan(4)
+		sleepRan(3)
 	}
 ; fourth
 	Click, 475, 725
-	sleepRan(4)
+	sleepRan(3)
 	if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 		Click, %FoundX%, %FoundY% 
-		sleepRan(4)
+		sleepRan(3)
 	}
 	else {
 		Send {Esc}
-		sleepRan(4)
+		sleepRan(2)
 	}
 ; dengar
 ;if (character != "MotherT" && character != "Bast" && character != "Bast2"){
@@ -380,26 +365,12 @@ shipments(){
 ;	}
 ;}
 ;old ben
-;if (character = "Zaaaast"){
-;	click, 965, 200
-;	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
-;	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
-;	if(imageCheck("oldBen.png") = true || imageCheck("oldBen.bmp") = true){
-;		click 450, 700
-;		sleepRan(3)
-;		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
-;			Click, %FoundX%, %FoundY% 
-;			sleepRan(3)
-;		}
-;	}
-;}
-;bariss
-if (character = "bast" || character = "bast2" || character = "MotherT"){
+if (character = "Bast" || character = "MotherT"){
 	click, 965, 200
 	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
 	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
-	if(imageCheck("barriss.png") = true || imageCheck("barriss.bmp") = true){
-		click 850, 700
+	if(imageCheck("oldBen.png") = true || imageCheck("oldBen.bmp") = true){
+		click 450, 700
 		sleepRan(3)
 		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
 			Click, %FoundX%, %FoundY% 
@@ -408,22 +379,19 @@ if (character = "bast" || character = "bast2" || character = "MotherT"){
 	}
 }
 ;Han
-;if (character = "NOONE"){
-;	click, 965, 800
-;	if(imageCheck("Han.png") = true || imageCheck("Han.bmp") = true){
-;		click 450, 700
-;		sleepRan(3)
-;		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
-;			Click, %FoundX%, %FoundY% 
-;			sleepRan(3)
-;		}
-;	}
-;}
-	Send {Esc}
-	sleepRan(2)
-	Send {Esc}
-	sleepRan(2)
+if (character = "Bast2"){
+	click, 965, 200
+	if(imageCheck("Han.png") = true || imageCheck("Han.bmp") = true){
+		click 450, 700
+		sleepRan(3)
+		if (imageCheck("buy.png",560, 450, 780, 780) = true) {
+			Click, %FoundX%, %FoundY% 
+			sleepRan(3)
+		}
+	}
+}
 returnToHome()
+sleepRan(1)
 }
 
 
@@ -442,17 +410,8 @@ ticketDailies(newCharacter,path){
 		sleep 20
 	}
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
-		Send {Esc}
-		sleepRan(2)
 		returnToHome()
 	}
-	if (imageCheck(*TransBlack "Guild.bmp", 5, 750, 175, 920) || imageCheck(*TransBlack "Guild.PNG", 5, 750, 175, 920)){
-		guild:=0
-	}
-	else {
-	    guild = 1
-	}
-	if (guild = 1) {
 ; regular farm, i think
 	openDark()
 	click 400, 880
@@ -473,15 +432,11 @@ ticketDailies(newCharacter,path){
 	returnToHome()
 ;cantina
 	openCantina()
-	click 1075, 175
+	click 100, 175
 	sleepRan(3)
-	MouseClickDrag, Left, 101, 500, 900, 500, 75
+	MouseClickDrag, Left, 901, 500, 200, 500, 75
 	sleepRan(2)
-	MouseClickDrag, Left, 101, 500, 900, 500, 75
-	sleepRan(2)
-	click 560, 450
-	sleepRan(3)
-	click 745, 515
+	click 575, 515
 	sleepRan(3)
 	multiSim()
 	returnToHome()
@@ -497,10 +452,6 @@ ticketDailies(newCharacter,path){
 	sleepRan(3)
 	click 800, 600
 	sleepRan(3)
-	Send {Esc}
-	sleepRan(2)
-	Send {Esc}
-	sleepRan(2)
 	returnToHome()
 ; ships
 	openShips()
@@ -510,13 +461,17 @@ ticketDailies(newCharacter,path){
 	sleepRan(2)
 	click 400, 875
 	sleepRan(2)
-	multiSim()
+	click 1200, 775
+	sleepRan(2)
+	click 800, 600
+	sleepRan(3)
 	returnToHome()
 ; extra energy
 	if(A_Hour = 18)	{
 		buyEnergy()
 	; sim bossk		
-			openDark()
+			click 1000, 600
+			sleepRan(3)
 			click 1400, 180
 			sleepRan(3)
 			click 1200, 900
@@ -526,7 +481,6 @@ ticketDailies(newCharacter,path){
 			multiSim()
 			returnToHome()
 		}
-	}
 ; galactic war
 	if(A_Hour = 06)	{
 		returnToHome()	
@@ -557,20 +511,27 @@ ticketDailies(newCharacter,path){
 		returnToHome()
 	}
 ; ship challenge
-	if(A_Hour = 12 || A_Hour = 1800)
+	if(A_Day != 2 && A_Hour = 12)
 	{
-	openShips()
+	MouseClickDrag, Left, 1400, 500, 300, 500, 75
+	sleepRan(2)
+	click 1325, 325
+	sleepRan(2)
 	click 400, 500
 	sleepRan(3)
-	click 1200, 200
+	click 700, 850
+	sleepRan(3)
+	click 800, 750
 	sleepRan(3)
 	click 800, 600
 	sleepRan(3)
-	Send {Esc}
-	sleepRan(2)
-	Send {Esc}
-	sleepRan(2)
-	Send {Esc}
+	click 800, 800
+	sleepRan(6)
+	click 800, 750
+	sleepRan(3)
+	click 800, 600
+	sleepRan(3)
+	click 800, 800
 	sleepRan(2)
 	returnToHome()
 	}
@@ -610,7 +571,7 @@ ticketDailies(newCharacter,path){
 			Click, 1400, 850
 			sleepRan(1)
 		}
-	returnToHome()		
+		returnToHome()		
 	}
 }
 
@@ -631,7 +592,7 @@ bosskDailies(newCharacter,path){
 		sleepRan(30)
 		while (imageCheck("disney.PNG") || imageCheck("capital.PNG") || imageCheck("titleScreen.PNG"))
 		{
-			Send {Esc}
+				Send {Esc}
 			sleepRan(2)
 		}
 	}
@@ -645,14 +606,6 @@ bosskDailies(newCharacter,path){
 	if (A_Hour = 18 || A_Hour = 6 || A_Hour = 17 || A_Hour = 5) {
 		claimLogin() 
 	}
-	returnToHome()	
-	if (imageCheck(*TransBlack "Guild.bmp", 5, 750, 175, 920) || imageCheck(*TransBlack "Guild.PNG", 5, 750, 175, 920)){
-		guild:=0
-	}
-	else {
-	    guild = 1
-	}
-	if (guild = 1) {
 ;CANTINA
 	openCantina()
 	click 250, 525
@@ -660,7 +613,7 @@ bosskDailies(newCharacter,path){
 	multiSim()
 	returnToHome()
 ; SIM light
-	if(A_Hour = 18){
+	if(A_Hour = 18 || A_Hour = 6){
 		buyEnergy()
 	}
 	openLight()
@@ -670,7 +623,6 @@ bosskDailies(newCharacter,path){
 	sleepRan(3)
 	multiSim()
 	returnToHome()
-	}
 	if (closeNox = 1){
 		Send !{f4}
 		sleepRan(2)	
@@ -695,66 +647,98 @@ OzTicketDailies(newCharacter,path){
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
 	}
-	if (imageCheck(*TransBlack "Guild.bmp", 5, 750, 175, 920) || imageCheck(*TransBlack "Guild.PNG", 5, 750, 175, 920)){
-		guild:=0
-	}
-	else {
-	    guild = 1
-	}
-	if (guild = 1) {
 ;CANTINA
 	openCantina()
-	click 325, 175
+	click 150, 175
 	sleepRan(3)
 	MouseClickDrag, Left, 200, 385, 1300,385, 75
 	sleepRan(2)
 	MouseClickDrag, Left, 200, 385, 1300,385, 75
 	sleepRan(2)
-	click 800, 500
+	click 560, 450
+	sleepRan(3)
+	multiSim()
+	sleepRan(3)
+	returnToHome()
+; SIM light jedi c
+	if(A_Hour = 11){
+		openLight()
+		MouseClickDrag, Left, 200, 185, 1300,185, 75
+		sleepRan(2)
+		click 125, 185
+		sleepRan(3)
+		click 1200, 875
+		sleepRan(2)
+		click 25, 475
+		sleepRan(3)
+		multiSim()
+		returnToHome()
+	}
+	; SIM light 4-d
+	if(A_Hour = 20){
+		openLight()
+		MouseClickDrag, Left, 200, 185, 1300,185, 75
+		sleepRan(2)
+		click 700, 185
+		sleepRan(3)
+		click 1200, 875
+		sleepRan(2)
+		MouseClickDrag, Left, 950, 485, 50, 485, 75
+		sleepRan(2)
+		click 300, 370
+		sleepRan(3)
+		click 185, 485
+		sleepRan(3)
+		multiSim()
+		returnToHome()
+	}
+;dark side jc
+	if(A_Hour = 17){
+		openDark()
+		MouseClickDrag, Left, 200, 185, 1300, 185, 75
+		sleepRan(2)
+		click 125, 185
+		sleepRan(3)
+		click 1200, 875
+		sleepRan(2)
+		multiSim()
+		returnToHome()
+	}
+; mods
+	openMods()
+	click 1100, 850
+	sleepRan(3)
+	click 1300, 750
+	sleepRan(3)
+	click 800, 600
+	sleepRan(3)
+	returnToHome()
+; ship energy
+	openShips()
+	fleetBattles()
+	click 350, 185
+	sleepRan(3)
+	click 300, 540
 	sleepRan(3)
 	multiSim()
 	returnToHome()
 ;burn energy
-;    Value  := Mod(a_dd, 2)
-;	if(Value = 1 && A_Hour = 11){
-	if(A_Hour = 11){
-		buyEnergy()
+	if(A_Hour = 05 || A_Hour = 20 || A_Hour = 11){
+		openLight()
+		clickNormal()
+		click7()
+		MouseClickDrag, Left, 950, 485, 50, 485, 75
+		sleepRan(2)
+		MouseClickDrag, Left, 950, 485, 50, 485, 75
+		sleepRan(2)
+		click 575, 515
+		sleepRan(3)
+		multiSim()
 	}
-	openLight()
-	clickNormal()
-	click8()
-	MouseClickDrag, Left, 950, 485, 50, 485, 75
-	sleepRan(2)
-	MouseClickDrag, Left, 950, 485, 50, 485, 75
-	sleepRan(2)
-	click 575, 515
-	sleepRan(3)
-	click 425, 625
-	sleepRan(3)
-	multiSim()
 	returnToHome()
-}
 }
 
 timeChecker:
-if (runNow = 1) {
-	if (A_Hour = 12 || A_Hour = 18 || A_Hour = 21 || A_Hour = 0 || A_Hour = 6 || A_Hour = 24) 
-	{
-	mainRoutine("Bast","-clone:Nox_0")
-	mainRoutine("MotherT","-clone:Nox_3")
-	mainRoutine("Bast2","-clone:Nox_6")
 	mainRoutine("Ozmethod2","-clone:Nox_1")
-	bosskDailies("Bossk","-clone:Nox_2")
-	}
-	if (A_Hour = 11 || A_Hour = 17 || A_Hour = 20 || A_Hour = 23 || A_Hour = 5) {
-	mainRoutine("OzmethodT3","-clone:Nox_4")
-	mainRoutine("OzmethodT4","-clone:Nox_8")
-	mainRoutine("OzmethodT5","-clone:Nox_7")
-;		sleepRan(2)
-;		dailies()	
-	}
-}
-runNow := 1
-closeNox := 1
 return
 
