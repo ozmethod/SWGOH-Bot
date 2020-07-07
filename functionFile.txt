@@ -10,6 +10,9 @@ ran(min,max) {
 
 imageCheck(fileName, x1:=0, y1:=0, x2:=0, y2:=0)
 {
+;msgBox %fileName%
+picturePath := "media/" + fileName
+;msgbox %picturePath%
 winactivate, %character%
 WinWaitActive, %character%
 WinGetActiveStats, Title, ww, hh, xx, yy
@@ -19,14 +22,14 @@ x2:=ww
 if(y2=0) {
 y2:=hh
 }
-ImageSearch, FoundX, FoundY, x1, y1, x2, y2,*120 %fileName%
+ImageSearch, FoundX, FoundY, x1, y1, x2, y2,*120 %picturePath%
 if ErrorLevel = 2 
 		{
 		msgBox Error
     }
 else if ErrorLevel = 1
 {
-;    msgbox %fileName%notfound
+;    msgbox %picturePath% notfound
     return false
     }
 else

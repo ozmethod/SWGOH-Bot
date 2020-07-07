@@ -12,10 +12,19 @@ global runTime:= 0
 ;global shipmentFlag := 1
 ;global haveEnergy:=1
 global character := "none"
+
+global runNow := 1
+
+if (runNow = 0){
+ timeTil00 := 3600000 - (A_Min * 60 * 1000) + 120000
+; msgbox %timeTil00%  
+ Sleep %timeTil00%
+runNow := 1
+}
+
 SetTimer, timeChecker, 3600000, On
 
-global closeNox := 0
-global runNow := 1
+global closeNox := 1
 
 ;mainRoutine()
 
@@ -29,6 +38,8 @@ mainRoutine(newCharacter,path){
         	sleepRan(26)
 		winactivate, %character%
 		WinWaitActive, %character%
+        	Send {Esc}
+                sleepRan(1)
 		if (imageCheck(*TransBlack "yoda.bmp")) {
         		sleepRan(2)
 			Click, %FoundX%, %FoundY% 
@@ -42,40 +53,43 @@ mainRoutine(newCharacter,path){
 	}
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
+		returnToHome()
 	}
 	getFreeEnergy()
-	if (A_Hour = 18 || A_Hour = 6 || A_Hour = 17 || A_Hour = 5) {
+	if (runTime = 18 || runTime = 6) {
 		claimLogin() 
 	}
-if (character != "OzmethodT3" && character != "OzmethodT4" && character != "OzmethodT5") {
+if (character = "Bast" || character = "MotherT" || character = "Bast2") {
  	freePack()
 	shipments()
-	if (character != "Ozmethod2") {
+	if (character != "OzmethodT2") {
 		dailies()
 		if(A_WDay = 1){
 			SundayDaily()
 		}
 	}		
-	if ((A_Hour = 21) && imageCheck("settings.png")){
+	if ((runTime = 21) && imageCheck("settings.png")){
 		dailyQuest()
 	}
 }
-	if(character = "Ozmethod2") {
-		ticketDailies("Ozmethod2","-clone:Nox_1")
+	if(character = "OzmethodT2") {
+		OzTicketDailies("OzmethodT2","-clone:Nox_2")
 	}
-	if(character = "OzmethodT3") {
-		OzTicketDailies("OzmethodT3","-clone:Nox_4")
+	else if(character = "OzmethodT3") {
+		OzTicketDailies("OzmethodT3","-clone:Nox_3")
 	}
-	if(character = "OzmethodT4") {
-		OzTicketDailies("OzmethodT4","-clone:Nox_8")
+	else if(character = "OzmethodT4") {
+		OzTicketDailies("OzmethodT4","-clone:Nox_4")
 	}
-	if(character = "OzmethodT5") {
-		OzTicketDailies("OzmethodT5","-clone:Nox_7")
+	else if(character = "OzmethodT5") {
+		OzTicketDailies("OzmethodT5","-clone:Nox_5")
+	}
+	else if(character = "Bossk") {
+		OzTicketDailies("Bossk","-clone:Nox_7")
 	}
 	if (closeNox = 1){
 		Send !{f4}
 		sleepRan(2)	
-		Send {Enter}
 	}
 }
 
@@ -119,7 +133,7 @@ dailies(){
 	if(imageCheck("enter.bmp", 175, 775, 400, 875) || imageCheck("enter.png", 175, 775, 400, 875))
 	{
 		Click, %FoundX%, %FoundY% 
-		sleepRan(2)
+		sleepRan(3)
 	}
 	if (character = "OzmethodT3" || character = "OzmethodT5" || character = "OzmethodT4"){
 		simDaily()
@@ -130,12 +144,12 @@ dailies(){
 	if(imageCheck("actBattle.bmp", 685, 700, 900, 950) || imageCheck("actBattle.png", 685, 750, 900, 950))
 	{
 		Click, %FoundX%, %FoundY% 
-		sleepRan(2)
+		sleepRan(3)
 	}
 	else if(imageCheck("actBattle.bmp", 200, 700, 400, 958) || imageCheck("actBattle.png", 200, 700, 400, 958))
 	{
 		Click, %FoundX%, %FoundY% 
-		sleepRan(2)
+		sleepRan(3)
 	}
 	else
 	{
@@ -143,17 +157,17 @@ dailies(){
 		return
 	}
 	Click, 250, 500
-	sleepRan(2)
+	sleepRan(3)
 	Click, 1380, 870
-	sleepRan(6)
+	sleepRan(7)
 	while (imageCheck("autoOff.bmp")=false)
 	{
-		sleepRan(2)
+		sleepRan(3)
 	}
 	Click, 250, 80
 	while (imageCheck("challengeVictory.bmp")=false) 
 	{
-		sleepRan(2)
+		sleepRan(3)
 	}
 	sleepRan(3)
 	returnToHome()
@@ -277,17 +291,17 @@ freePack(){
 
 getFreeEnergy(){
 ;open quest screen
-	sleepRan(1)
+	sleepRan(2)
 Click, 1385, 870
 	sleepRan(2)
 ;check if daily quests are currently selected, if not click them.
 	Click, 300, 200
 	sleepRan(2)
 	while(imageCheck(*TransBlack "energy.bmp", 100, 400, 150, 450)=true || imageCheck(*TransBlack "energy.png", 200, 260, 339, 305)=true) {
-		sleepRan(3)
+		sleepRan(1)
 		Click, 1385, 870
 ;msgBox "Would have clicked"
-		sleepRan(3)
+		sleepRan(1)
 	}
 	Send {Esc}
 	sleepRan(2)
@@ -394,7 +408,7 @@ shipments(){
 ;	}
 ;}
 ;bariss
-if (character = "bast" || character = "bast2" || character = "MotherT"){
+if (character = "BAAAast" || character = "Bast2" || character = "MooooootherT"){
 	click, 965, 200
 	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
 	MouseClickDrag, Left, 1160, 700, 1160, 300, 75
@@ -513,7 +527,7 @@ ticketDailies(newCharacter,path){
 	multiSim()
 	returnToHome()
 ; extra energy
-	if(A_Hour = 18)	{
+	if(runTime = 18)	{
 		buyEnergy()
 	; sim bossk		
 			openDark()
@@ -528,7 +542,7 @@ ticketDailies(newCharacter,path){
 		}
 	}
 ; galactic war
-	if(A_Hour = 06)	{
+	if(runTime = 06)	{
 		returnToHome()	
 		click 1400, 300
 		sleepRan(3)
@@ -541,7 +555,7 @@ ticketDailies(newCharacter,path){
 		returnToHome()	
 	}	
 ; arena
-	if(A_Hour != 21){
+	if(runTime != 21){
 		click 1200, 400
 		sleepRan(3)
 		click 1300, 825
@@ -557,7 +571,7 @@ ticketDailies(newCharacter,path){
 		returnToHome()
 	}
 ; ship challenge
-	if(A_Hour = 12 || A_Hour = 1800)
+	if(runTime = 12 || runTime = 18)
 	{
 	openShips()
 	click 400, 500
@@ -584,7 +598,7 @@ ticketDailies(newCharacter,path){
 	sleepRan(2)
 	returnToHome()
 ; ship arena
-	if(A_Hour = 6)
+	if(runTime = 6)
 	{
 	openShips()
 	openShipArena()
@@ -601,7 +615,7 @@ ticketDailies(newCharacter,path){
 	returnToHome()
 	}
 ; claim quests
-	if(A_Hour = 21){
+	if(runTime = 21){
 		Click, 1300, 850
 		sleepRan(2)	
 		Click, 100, 200
@@ -642,7 +656,7 @@ bosskDailies(newCharacter,path){
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
 	}
-	if (A_Hour = 18 || A_Hour = 6 || A_Hour = 17 || A_Hour = 5) {
+	if (runTime = 18 || runTime = 6) {
 		claimLogin() 
 	}
 	returnToHome()	
@@ -655,12 +669,12 @@ bosskDailies(newCharacter,path){
 	if (guild = 1) {
 ;CANTINA
 	openCantina()
-	click 250, 525
+	click 125, 175
 	sleepRan(3)
 	multiSim()
 	returnToHome()
 ; SIM light
-	if(A_Hour = 18){
+	if(runTime = 18){
 		buyEnergy()
 	}
 	openLight()
@@ -680,57 +694,33 @@ bosskDailies(newCharacter,path){
 
 OzTicketDailies(newCharacter,path){
     character:=newCharacter
-    Send {Shift}
-    sleepRan(5)
-	IfWinNotExist, %character%
-	Run, C:\Program Files (x86)\Nox\bin\Nox.exe %path%
-        sleepRan(2)
-	winactivate, %character%
-	WinWaitActive, %character%
-	if (imageCheck(*TransBlack "yoda.bmp")) {
-        	sleepRan(2)
-		Click, %FoundX%, %FoundY% 
-		sleep 20
-	}
 	if (imageCheck(*TransBlack "settings.bmp")=false) {
 		returnToHome()
 	}
 	if (imageCheck(*TransBlack "Guild.bmp", 5, 750, 175, 920) || imageCheck(*TransBlack "Guild.PNG", 5, 750, 175, 920)){
-		guild:=0
+		guild := 0
 	}
 	else {
-	    guild = 1
+	    guild := 1
 	}
 	if (guild = 1) {
 ;CANTINA
 	openCantina()
-	click 325, 175
-	sleepRan(3)
-	MouseClickDrag, Left, 200, 385, 1300,385, 75
-	sleepRan(2)
-	MouseClickDrag, Left, 200, 385, 1300,385, 75
-	sleepRan(2)
-	click 800, 500
+        sleepRan(2)
+	click 125, 175
 	sleepRan(3)
 	multiSim()
 	returnToHome()
 ;burn energy
 ;    Value  := Mod(a_dd, 2)
-;	if(Value = 1 && A_Hour = 11){
-	if(A_Hour = 11){
+;	if(Value = 1 && runTime = 11){
+	if(runTime = 12){
 		buyEnergy()
 	}
 	openLight()
 	clickNormal()
-	click8()
-	MouseClickDrag, Left, 950, 485, 50, 485, 75
+	click 125, 175
 	sleepRan(2)
-	MouseClickDrag, Left, 950, 485, 50, 485, 75
-	sleepRan(2)
-	click 575, 515
-	sleepRan(3)
-	click 425, 625
-	sleepRan(3)
 	multiSim()
 	returnToHome()
 }
@@ -738,18 +728,29 @@ OzTicketDailies(newCharacter,path){
 
 timeChecker:
 if (runNow = 1) {
-	if (A_Hour = 12 || A_Hour = 18 || A_Hour = 21 || A_Hour = 0 || A_Hour = 6 || A_Hour = 24) 
+	if (A_Hour = 12 || A_Hour = 18 || A_Hour = 22 || A_Hour = 1 || A_Hour = 8 || A_Hour = 24 || A_Hour = 15) 
 	{
-	mainRoutine("Bast","-clone:Nox_0")
-	mainRoutine("MotherT","-clone:Nox_3")
-	mainRoutine("Bast2","-clone:Nox_6")
-	mainRoutine("Ozmethod2","-clone:Nox_1")
-	bosskDailies("Bossk","-clone:Nox_2")
+	runTime := A_Hour
+	if (runTime = 8)
+  	  {	
+		runTime = 6
 	}
-	if (A_Hour = 11 || A_Hour = 17 || A_Hour = 20 || A_Hour = 23 || A_Hour = 5) {
-	mainRoutine("OzmethodT3","-clone:Nox_4")
-	mainRoutine("OzmethodT4","-clone:Nox_8")
-	mainRoutine("OzmethodT5","-clone:Nox_7")
+	if (runTime = 22)
+  	  {	
+		runTime = 21
+	}
+	if (runTime = 1)
+  	  {	
+		runTime = 0
+	}
+	mainRoutine("OzmethodT3","-clone:Nox_3")
+	mainRoutine("OzmethodT4","-clone:Nox_4")
+	mainRoutine("OzmethodT5","-clone:Nox_5")
+	mainRoutine("OzmethodT2","-clone:Nox_2")
+	mainRoutine("Bossk","-clone:Nox_7")
+;	mainRoutine("Bast","-clone:Nox_0")
+	mainRoutine("MotherT","-clone:Nox_1")
+;	mainRoutine("Bast2","-clone:Nox_6")
 ;		sleepRan(2)
 ;		dailies()	
 	}
