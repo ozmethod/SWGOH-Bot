@@ -1,4 +1,8 @@
 
 #include functionFile.txt
-imageCheck(*TransBlack "Guild.PNG", 5, 750, 175, 920)
 
+SysGet, var, MonitorCount
+msgbox, %var%
+
+WinGet, var, ,OzmethodT6
+msgbox, %var%
